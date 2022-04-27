@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/localHeadlinesFragment"
+        android:title="Local Headlines"
+        android:icon="@drawable/ic_local_headlines"/>
+
+    <item android:id="@+id/internationalHeadlinesFragment"
+        android:title="World Headlines"
+        android:icon="@drawable/ic_world"/>
+
+    <item android:id="@+id/savedNewsFragment"
+        android:title="Saved"
+        android:icon="@drawable/ic_saved"/>
+
+    <item android:id="@+id/searchNewsFragment"
+        android:title="Search"
+        android:icon="@drawable/ic_search"/>
+</menu>
