@@ -42,7 +42,10 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
         holder.binding.apply {
             tvTitle.text = article.title
             tvDescription.text = article.description
-            ivImage.load(article.urlToImage)
+            ivImage.load(article.urlToImage){
+                crossfade(true)
+                crossfade(1000)
+            }
 
             setOnItemClickListener {
                 onItemClickListener?.let{

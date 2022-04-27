@@ -4,13 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/jygrz/StudioProjects/newsapp/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/jygrz/StudioProjects/newsapp/app/src/main/res/layout/activity_news.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jygrz/StudioProjects/newsapp/app/src/main/res/layout/fragment_article.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jygrz/StudioProjects/newsapp/app/src/main/res/layout/fragment_international_headline.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jygrz/StudioProjects/newsapp/app/src/main/res/layout/fragment_international_headlines.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jygrz/StudioProjects/newsapp/app/src/main/res/layout/fragment_local_headlines.xml" value="0.14" />
         <entry key="..\:/Users/jygrz/StudioProjects/newsapp/app/src/main/res/layout/fragment_saved_news.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jygrz/StudioProjects/newsapp/app/src/main/res/layout/fragment_search_news.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/jygrz/StudioProjects/newsapp/app/src/main/res/layout/news_item_layout.xml" value="0.12" />
+        <entry key="..\:/Users/jygrz/StudioProjects/newsapp/app/src/main/res/layout/news_item_layout.xml" value="0.18" />
         <entry key="..\:/Users/jygrz/StudioProjects/newsapp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.20416666666666666" />
       </map>
     </option>
