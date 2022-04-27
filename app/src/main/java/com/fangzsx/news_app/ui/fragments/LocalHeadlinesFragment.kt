@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fangzsx.news_app.R
 import com.fangzsx.news_app.adapters.NewsAdapter
@@ -25,11 +26,6 @@ class LocalHeadlinesFragment : Fragment() {
     val TAG = "LocalHeadlinesFragment"
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -41,6 +37,19 @@ class LocalHeadlinesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = (activity as NewsActivity).viewModel
+        setupRecyclerView()
+
+        newsAdapter.setOnItemClickListener {
+//            val bundle = Bundle().apply {
+//                putSerializable("article", it)
+//            }
+
+            findNavController().navigate(
+                R.id.action_localHeadlinesFragment_to_articleFragment
+                //bundle
+            )
+
+        }
 
         viewModel.localHeadlines.observe(viewLifecycleOwner){ response ->
             when(response){
@@ -63,9 +72,6 @@ class LocalHeadlinesFragment : Fragment() {
             }
 
         }
-
-        setupRecyclerView()
-
     }
 
     private fun setupRecyclerView(){
