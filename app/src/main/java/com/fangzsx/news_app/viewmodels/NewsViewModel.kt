@@ -16,6 +16,9 @@ class NewsViewModel(
     val localHeadlines : MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
     var headlinesPageNumber = 1
 
+    val searchNewsResult : MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
+    var searchNewsResultPageNumber = 1
+
 
     init {
         getLocalHeadlines("ph")
@@ -24,11 +27,27 @@ class NewsViewModel(
     fun getLocalHeadlines(countryCode : String) = viewModelScope.launch {
         localHeadlines.postValue(Resource.Loading())
         val response = repository.getLocalHeadlines(countryCode, headlinesPageNumber)
-
-        localHeadlines.postValue(handleNewsResponse(response))
+        localHeadlines.postValue(handleLocalNewsResponse(response))
     }
 
-    private fun handleNewsResponse(response : Response<NewsResponse>) :  Resource<NewsResponse>{
+    fun searchNews(searchQuery : String) = viewModelScope.launch {
+        searchNewsResult.postValue(Resource.Loading())
+        val response = repository.searchNews(searchQuery, searchNewsResultPageNumber)
+        searchNewsResult.postValue(handleSearchNewsResponse(response))
+
+    }
+
+    private fun handleLocalNewsResponse(response : Response<NewsResponse>) :  Resource<NewsResponse>{
+        if(response.isSuccessful){
+            response.body()?.let { resultResponse ->
+                return Resource.Success(resultResponse)
+            }
+        }
+
+        return Resource.Error(response.message())
+    }
+
+    private fun handleSearchNewsResponse(response : Response<NewsResponse>) :  Resource<NewsResponse>{
         if(response.isSuccessful){
             response.body()?.let { resultResponse ->
                 return Resource.Success(resultResponse)

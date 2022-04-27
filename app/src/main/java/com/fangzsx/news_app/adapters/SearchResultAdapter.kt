@@ -9,7 +9,7 @@ import coil.load
 import com.fangzsx.news_app.databinding.NewsItemLayoutBinding
 import com.fangzsx.news_app.model.Article
 
-class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
+class SearchResultAdapter : RecyclerView.Adapter<SearchResultAdapter.ArticleViewHolder>() {
 
     inner class ArticleViewHolder(val binding : NewsItemLayoutBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -27,16 +27,24 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {
         return ArticleViewHolder(
             NewsItemLayoutBinding.inflate(
-                LayoutInflater.from(
-                    parent.context
-                ),
-                parent, false
+                LayoutInflater.from(parent.context),
+                parent,
+                false
             )
         )
+
     }
+
+    private var onItemClickListener : ((Article) -> Unit)? = null
+
+    fun setOnItemClickListener(listener : (Article) -> Unit){
+        onItemClickListener = listener
+    }
+
 
     override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
         val article = differ.currentList[position]
+
         holder.binding.apply {
             tvTitle.text = article.title
             tvDescription.text = article.description
@@ -46,18 +54,11 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
             }
 
             btnReadMore.setOnClickListener {
-                onItemClickListener?.let{
+                onItemClickListener?.let {
                     it(article)
                 }
             }
-
         }
-    }
-
-    private var onItemClickListener : ((Article) -> Unit)? = null
-
-    fun setOnItemClickListener(listener : (Article) -> Unit){
-        onItemClickListener = listener
     }
 
     override fun getItemCount(): Int {
