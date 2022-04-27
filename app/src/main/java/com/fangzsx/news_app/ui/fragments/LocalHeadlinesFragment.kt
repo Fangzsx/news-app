@@ -5,10 +5,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.fangzsx.news_app.R
+import com.fangzsx.news_app.adapters.NewsAdapter
+import com.fangzsx.news_app.databinding.FragmentLocalHeadlinesBinding
 
 
 class LocalHeadlinesFragment : Fragment() {
+
+    private lateinit var binding : FragmentLocalHeadlinesBinding
+    private lateinit var newsAdapter: NewsAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,8 +26,13 @@ class LocalHeadlinesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_local_headlines, container, false)
+        binding = FragmentLocalHeadlinesBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
     }
 
 }
