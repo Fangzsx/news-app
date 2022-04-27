@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="@dimen/_250sdp"
+        android:layout_width="@dimen/_280sdp"
         android:layout_height="@dimen/_350sdp"
         android:layout_gravity="center_horizontal"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -31,6 +31,8 @@
                 android:layout_width="match_parent"
                 android:padding="@dimen/_8sdp"
                 android:layout_height="0dp"
+                android:gravity="center_vertical"
+                android:textStyle="bold"
                 android:layout_weight="0.20"/>
             <ImageView
                 android:id="@+id/iv_image"
