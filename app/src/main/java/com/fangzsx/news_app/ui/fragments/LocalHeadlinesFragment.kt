@@ -41,7 +41,7 @@ class LocalHeadlinesFragment : Fragment() {
         viewModel.getLocalHeadlines("ph")
 
         setupRecyclerView()
-        
+
         viewModel.localHeadlines.observe(viewLifecycleOwner){ response ->
             when(response){
                 is Resource.Success -> {
