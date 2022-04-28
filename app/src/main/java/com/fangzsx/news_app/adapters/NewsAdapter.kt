@@ -38,7 +38,7 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
     override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
         val article = differ.currentList[position]
         holder.binding.apply {
-            tvTitle.text = article.title
+            tvTitle.text = "\"${article.title}\""
             tvDescription.text = article.description
             ivImage.load(article.urlToImage){
                 crossfade(true)
