@@ -4,12 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#DCDBDB"
     tools:context=".ui.fragments.LocalHeadlinesFragment">
 
     <TextView
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_56sdp"
+        android:background="#617FE8"
+        android:fontFamily="@font/futurabold"
+        android:textColor="@color/white"
         android:textSize="@dimen/_16ssp"
         android:gravity="center"
         android:text="Local Headlines"

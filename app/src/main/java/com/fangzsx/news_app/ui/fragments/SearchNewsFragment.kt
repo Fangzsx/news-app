@@ -8,8 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.fangzsx.news_app.R
-import com.fangzsx.news_app.adapters.SearchResultAdapter
+import com.fangzsx.news_app.adapters.NewsAdapter
 import com.fangzsx.news_app.databinding.FragmentSearchNewsBinding
 import com.fangzsx.news_app.ui.NewsActivity
 import com.fangzsx.news_app.util.Resource
@@ -20,13 +19,10 @@ class SearchNewsFragment : Fragment() {
 
     private lateinit var binding : FragmentSearchNewsBinding
     lateinit var viewModel : NewsViewModel
-    lateinit var searchResultAdapter: SearchResultAdapter
+    private lateinit var newsAdapter : NewsAdapter
 
     private val TAG = "SearchNewsFragment"
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -64,7 +60,7 @@ class SearchNewsFragment : Fragment() {
                 is Resource.Success -> {
                     //hide progressbar
                     response.data?.let { newsResponse ->
-                        searchResultAdapter.differ.submitList(newsResponse.articles)
+                        newsAdapter.differ.submitList(newsResponse.articles)
                     }
                 }
 
@@ -84,10 +80,10 @@ class SearchNewsFragment : Fragment() {
     }
 
     private fun setupRecyclerView(){
-        searchResultAdapter = SearchResultAdapter()
+        newsAdapter = NewsAdapter()
 
         binding.rvSearchResults.apply{
-            adapter = searchResultAdapter
+            adapter = newsAdapter
             layoutManager = LinearLayoutManager(activity)
         }
     }

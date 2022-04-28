@@ -20,10 +20,6 @@ class NewsViewModel(
     var searchNewsResultPageNumber = 1
 
 
-    init {
-        getLocalHeadlines("ph")
-    }
-
     fun getLocalHeadlines(countryCode : String) = viewModelScope.launch {
         localHeadlines.postValue(Resource.Loading())
         val response = repository.getLocalHeadlines(countryCode, headlinesPageNumber)

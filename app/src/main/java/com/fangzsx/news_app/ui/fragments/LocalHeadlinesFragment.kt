@@ -37,20 +37,11 @@ class LocalHeadlinesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = (activity as NewsActivity).viewModel
+
+        viewModel.getLocalHeadlines("ph")
+
         setupRecyclerView()
-
-        newsAdapter.setOnItemClickListener {
-//            val bundle = Bundle().apply {
-//                putSerializable("article", it)
-//            }
-
-            findNavController().navigate(
-                R.id.action_localHeadlinesFragment_to_articleFragment
-                //bundle
-            )
-
-        }
-
+        
         viewModel.localHeadlines.observe(viewLifecycleOwner){ response ->
             when(response){
                 is Resource.Success -> {
@@ -80,11 +71,6 @@ class LocalHeadlinesFragment : Fragment() {
         binding.rvLocalHeadlines.apply{
             adapter = newsAdapter
             layoutManager = LinearLayoutManager(activity)
-        }
-
-        newsAdapter.setOnItemClickListener {
-
-            Toast.makeText(activity, it.source.name, Toast.LENGTH_SHORT).show()
         }
     }
 

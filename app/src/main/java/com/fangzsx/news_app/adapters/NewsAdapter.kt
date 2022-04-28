@@ -46,11 +46,10 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
             }
 
             btnReadMore.setOnClickListener {
-                onItemClickListener?.let{
+                onItemClickListener?.let {
                     it(article)
                 }
             }
-
         }
     }
 

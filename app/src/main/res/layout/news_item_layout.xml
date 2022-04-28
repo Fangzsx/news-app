@@ -30,25 +30,30 @@
                 android:id="@+id/tv_title"
                 android:layout_width="match_parent"
                 android:padding="@dimen/_8sdp"
+                android:textSize="@dimen/_12sdp"
+                android:fontFamily="@font/futurasemibold"
+                android:textColor="#0D1321"
                 android:layout_height="0dp"
                 android:gravity="center_vertical"
                 android:textStyle="bold"
-                android:layout_weight="0.20"/>
+                android:layout_weight="0.25"/>
             <ImageView
                 android:id="@+id/iv_image"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="0.50"/>
+                android:layout_weight="0.45"/>
             <TextView
                 android:id="@+id/tv_description"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:padding="@dimen/_8sdp"
-                android:layout_weight="0.20"/>
+                android:maxLines="2"
+                android:ellipsize="marquee"
+                android:layout_weight="0.15"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="0.10"
+                android:layout_weight="0.15"
                 android:orientation="horizontal"
                 android:paddingStart="@dimen/_8sdp"
                 android:paddingEnd="@dimen/_8sdp">
@@ -61,8 +66,16 @@
                         android:id="@+id/btn_read_more"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        app:backgroundTint="#0D1321"
+                        android:textAllCaps="false"
+                        android:fontFamily="@font/futur"
+                        android:paddingStart="@dimen/_20sdp"
+                        android:paddingEnd="@dimen/_20sdp"
+                        android:paddingTop="@dimen/_10sdp"
+                        android:paddingBottom="@dimen/_10sdp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         android:text="Read More"/>
 
 

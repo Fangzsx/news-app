@@ -1,7 +1,9 @@
 package com.fangzsx.news_app.model
 
+import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.parcelize.Parcelize
 import java.io.Serializable
 
 
@@ -9,10 +11,10 @@ import java.io.Serializable
     tableName = "articles"
 )
 
+@Parcelize
 data class Article(
     @PrimaryKey(autoGenerate = true)
-    var id : Int? = null,
-
+    var id: Int? = null,
     val author: String,
     val content: String,
     val description: String,
@@ -21,4 +23,4 @@ data class Article(
     val title: String,
     val url: String,
     val urlToImage: String
-) : Serializable
+) : Parcelable

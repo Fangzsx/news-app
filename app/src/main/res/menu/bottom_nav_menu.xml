@@ -2,15 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/localHeadlinesFragment"
-        android:title="Local Headlines"
+        android:title="Local News"
         android:icon="@drawable/ic_local_headlines"/>
 
     <item android:id="@+id/internationalHeadlinesFragment"
-        android:title="World Headlines"
+        android:title="International News"
         android:icon="@drawable/ic_world"/>
 
     <item android:id="@+id/savedNewsFragment"
-        android:title="Saved"
+        android:title="Saved News"
         android:icon="@drawable/ic_saved"/>
 
     <item android:id="@+id/searchNewsFragment"
