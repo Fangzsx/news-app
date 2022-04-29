@@ -3,11 +3,30 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id("androidx.navigation.safeargs.kotlin")
-    id("kotlin-parcelize")
+    id 'kotlin-parcelize'
 }
 
 
 android {
+    signingConfigs {
+        debug {
+            storeFile file('C:\\Users\\jygrz\\StudioProjects\\newsapp\\keystore\\key.jks')
+            storePassword 'kidduishart'
+            keyAlias 'keystore-newsapp'
+            keyPassword 'kidduishart'
+        }
+        release {
+            storeFile file('C:\\Users\\jygrz\\StudioProjects\\newsapp\\keystore\\key.jks')
+            storePassword 'kidduishart'
+            keyAlias 'keystore-newsapp'
+            keyPassword 'kidduishart'
+        }
+        
+        defaultConfig {
+            signingConfig signingConfigs.debug
+        }
+
+    }
     compileSdk 32
 
     defaultConfig {

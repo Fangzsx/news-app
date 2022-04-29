@@ -51,6 +51,7 @@
                 android:layout_height="0dp"
                 android:padding="@dimen/_8sdp"
                 android:maxLines="2"
+                android:fontFamily="@font/futur"
                 android:ellipsize="end"
                 android:layout_weight="0.15"/>
             <LinearLayout
