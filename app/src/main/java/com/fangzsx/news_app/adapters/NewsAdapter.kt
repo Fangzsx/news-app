@@ -46,18 +46,31 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
             }
 
             btnReadMore.setOnClickListener {
-                onItemClickListener?.let {
+                onReadMoreClickListener?.let {
                     it(article)
                 }
             }
+
+            ivSave.setOnClickListener {
+                onSaveClickListener?.let {
+                    it(article)
+                }
+            }
+
         }
 
     }
 
-    private var onItemClickListener : ((Article) -> Unit)? = null
+    private var onReadMoreClickListener : ((Article) -> Unit)? = null
 
-    fun setOnItemClickListener(listener : (Article) -> Unit){
-        onItemClickListener = listener
+    private var onSaveClickListener : ((Article) -> Unit)? = null
+
+    fun setOnReadMoreClickListener(listener : (Article) -> Unit){
+        onReadMoreClickListener = listener
+    }
+
+    fun setOnSaveClickListener(listener : (Article) -> Unit){
+        onSaveClickListener = listener
     }
 
     override fun getItemCount(): Int {

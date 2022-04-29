@@ -39,7 +39,8 @@ class InternationalHeadlinesFragment : Fragment() {
         viewModel.getLocalHeadlines("us")
         setupRecyclerView()
 
-        newsAdapter.setOnItemClickListener {
+        newsAdapter.
+        setOnReadMoreClickListener {
             val bundle = Bundle()
             bundle.putString("webview_url", it.url)
             bundle.putString("source", it.source.name)

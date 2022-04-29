@@ -44,12 +44,16 @@ class LocalHeadlinesFragment : Fragment() {
 
         setupRecyclerView()
 
-        newsAdapter.setOnItemClickListener {
+        newsAdapter.setOnReadMoreClickListener {
             val bundle = Bundle()
             bundle.putString("webview_url", it.url)
             bundle.putString("source", it.source.name)
 
             findNavController().navigate(R.id.action_localHeadlinesFragment_to_articleFragment,bundle)
+        }
+
+        newsAdapter.setOnSaveClickListener {
+            Toast.makeText(activity, "save clicked.", Toast.LENGTH_SHORT).show()
         }
 
 

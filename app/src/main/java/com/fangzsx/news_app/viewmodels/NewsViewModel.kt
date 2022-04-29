@@ -3,6 +3,7 @@ package com.fangzsx.news_app.viewmodels
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.fangzsx.news_app.model.Article
 import com.fangzsx.news_app.model.NewsResponse
 import com.fangzsx.news_app.repo.NewsRepository
 import com.fangzsx.news_app.util.Resource
@@ -49,8 +50,17 @@ class NewsViewModel(
                 return Resource.Success(resultResponse)
             }
         }
-
         return Resource.Error(response.message())
+    }
+
+    fun getSavedNews() = repository.getAllArticle()
+
+    suspend fun saveArticle(article : Article) = viewModelScope.launch {
+        repository.upsertArticle(article)
+    }
+
+    suspend fun deleteArticle(article : Article) = viewModelScope.launch {
+        repository.deleteArticle(article)
     }
 
 }
