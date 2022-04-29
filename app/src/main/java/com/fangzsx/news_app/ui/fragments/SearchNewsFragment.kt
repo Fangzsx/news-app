@@ -7,7 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.fangzsx.news_app.R
 import com.fangzsx.news_app.adapters.NewsAdapter
 import com.fangzsx.news_app.databinding.FragmentSearchNewsBinding
 import com.fangzsx.news_app.ui.NewsActivity
@@ -77,6 +79,14 @@ class SearchNewsFragment : Fragment() {
         }
 
         setupRecyclerView()
+
+        newsAdapter.setOnItemClickListener {
+            val bundle = Bundle()
+            bundle.putString("webview_url", it.url)
+            bundle.putString("source", it.source.name)
+
+            findNavController().navigate(R.id.action_searchNewsFragment_to_articleFragment,bundle)
+        }
     }
 
     private fun setupRecyclerView(){

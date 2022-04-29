@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fangzsx.news_app.R
 import com.fangzsx.news_app.adapters.NewsAdapter
@@ -37,6 +38,14 @@ class InternationalHeadlinesFragment : Fragment() {
 
         viewModel.getLocalHeadlines("us")
         setupRecyclerView()
+
+        newsAdapter.setOnItemClickListener {
+            val bundle = Bundle()
+            bundle.putString("webview_url", it.url)
+            bundle.putString("source", it.source.name)
+
+            findNavController().navigate(R.id.action_internationalHeadlinesFragment_to_articleFragment,bundle)
+        }
 
         viewModel.localHeadlines.observe(viewLifecycleOwner){ response ->
             when(response){
