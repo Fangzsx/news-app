@@ -52,13 +52,8 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
                 }
             }
 
-            if(article.description.isNullOrEmpty()){
-                tvDescription.text = "Source: ${article.source?.name}"
-            }else{
-                tvDescription.text = article.description
-            }
 
-
+            tvDescription.text = article.description
             btnReadMore.setOnClickListener {
                 onReadMoreClickListener?.let {
                     it(article)
@@ -75,12 +70,8 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
                 ivSave.visibility = View.GONE
             }
 
-
-
         }
-
     }
-
 
     private var onReadMoreClickListener : ((Article) -> Unit)? = null
 
