@@ -136,7 +136,7 @@ class SearchNewsFragment : Fragment() {
             val shouldPaginate = isNotLoadingAndNotLastPage && isAtLastItem && isAtNotBeginning && isMoreThanVisible && isScrolling
 
             if(shouldPaginate){
-                viewModel.searchNews(binding.searchView.query.toString()) //
+                viewModel.searchNews(binding.searchView.query.toString())
                 isScrolling = false
             }
         }
