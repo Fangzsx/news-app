@@ -123,9 +123,6 @@ class LocalHeadlinesFragment : Fragment() {
                 viewModel.getLocalHeadlines("ph")
                 isScrolling = false
             }
-
-
-
         }
     }
 
