@@ -5,11 +5,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fangzsx.news_app.R
 import com.fangzsx.news_app.adapters.NewsAdapter
@@ -41,7 +38,7 @@ class LocalHeadlinesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel = (activity as NewsActivity).viewModel
 
-        viewModel.getLocalHeadlines("ph")
+        viewModel.getHeadlines("ph")
 
         setupRecyclerView()
 
@@ -60,7 +57,7 @@ class LocalHeadlinesFragment : Fragment() {
 
 
 
-        viewModel.localHeadlines.observe(viewLifecycleOwner){ response ->
+        viewModel.headlines.observe(viewLifecycleOwner){ response ->
             when(response){
                 is Resource.Success -> {
                     //hide progress bar

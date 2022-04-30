@@ -37,7 +37,7 @@ class InternationalHeadlinesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel = (activity as NewsActivity).viewModel
 
-        viewModel.getLocalHeadlines("us")
+        viewModel.getHeadlines("us")
         setupRecyclerView()
 
         newsAdapter.setOnReadMoreClickListener {
@@ -53,7 +53,7 @@ class InternationalHeadlinesFragment : Fragment() {
             Snackbar.make(view, "Article saved.", Snackbar.LENGTH_SHORT).show()
         }
 
-        viewModel.localHeadlines.observe(viewLifecycleOwner){ response ->
+        viewModel.headlines.observe(viewLifecycleOwner){ response ->
             when(response){
                 is Resource.Success -> {
                     //hide progress bar
