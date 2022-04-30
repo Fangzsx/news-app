@@ -41,7 +41,7 @@ class LocalHeadlinesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel = (activity as NewsActivity).viewModel
 
-        viewModel.getHeadlines("ph")
+        viewModel.getLocalHeadlines("ph")
 
         setupRecyclerView()
 
@@ -58,9 +58,7 @@ class LocalHeadlinesFragment : Fragment() {
             Snackbar.make(view, "Article saved.", Snackbar.LENGTH_SHORT).show()
         }
 
-
-
-        viewModel.headlines.observe(viewLifecycleOwner){ response ->
+        viewModel.localHeadlines.observe(viewLifecycleOwner){ response ->
             when(response){
                 is Resource.Success -> {
                     //hide progress bar
@@ -69,7 +67,7 @@ class LocalHeadlinesFragment : Fragment() {
                         newsAdapter.differ.submitList(newsResponse.articles.toList())
 
                         val totalPages = newsResponse.totalResults / QUERY_PAGE_SIZE + 2
-                        isLastPage = viewModel.headlinesPageNumber == totalPages
+                        isLastPage = viewModel.localHeadlinesPageNumber == totalPages
                     }
 
 
@@ -122,7 +120,7 @@ class LocalHeadlinesFragment : Fragment() {
             val shouldPaginate = isNotLoadingAndNotLastPage && isAtLastItem && isAtNotBeginning && isMoreThanVisible && isScrolling
 
             if(shouldPaginate){
-                viewModel.getHeadlines("ph")
+                viewModel.getLocalHeadlines("ph")
                 isScrolling = false
             }
 

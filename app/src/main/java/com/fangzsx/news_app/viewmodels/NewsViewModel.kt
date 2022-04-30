@@ -14,19 +14,31 @@ class NewsViewModel(
     private val repository: NewsRepository
 ) : ViewModel() {
 
-    val headlines : MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
-    var headlinesPageNumber = 1
-    var headlinesResponse : NewsResponse? = null
+    val localHeadlines : MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
+    var localHeadlinesPageNumber = 1
+    var localHeadlinesResponse : NewsResponse? = null
+
+    val internationalHeadlines : MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
+    var internationalHeadlinesPageNumber = 1
+    var internationalHeadlinesResponse : NewsResponse? = null
+
+
 
     val searchNewsResult : MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
     var searchNewsResultPageNumber = 1
     var searchNewsResponse : NewsResponse? = null
 
 
-    fun getHeadlines(countryCode : String) = viewModelScope.launch {
-        headlines.postValue(Resource.Loading())
-        val response = repository.getLocalHeadlines(countryCode, headlinesPageNumber)
-        headlines.postValue(handleLocalNewsResponse(response))
+    fun getLocalHeadlines(countryCode : String) = viewModelScope.launch {
+        localHeadlines.postValue(Resource.Loading())
+        val response = repository.getHeadlines(countryCode, localHeadlinesPageNumber)
+        localHeadlines.postValue(handleLocalNewsResponse(response))
+    }
+
+    fun getInternationalHeadlines(countryCode : String) = viewModelScope.launch {
+        internationalHeadlines.postValue(Resource.Loading())
+        val response = repository.getHeadlines(countryCode, internationalHeadlinesPageNumber)
+        internationalHeadlines.postValue(handleInternationalNewsResponse(response))
     }
 
     fun searchNews(searchQuery : String) = viewModelScope.launch {
@@ -39,16 +51,35 @@ class NewsViewModel(
     private fun handleLocalNewsResponse(response : Response<NewsResponse>) :  Resource<NewsResponse>{
         if(response.isSuccessful){
             response.body()?.let { resultResponse ->
-                headlinesPageNumber++
-                if(headlinesResponse == null){
-                    headlinesResponse = resultResponse
+                localHeadlinesPageNumber++
+                if(localHeadlinesResponse == null){
+                    localHeadlinesResponse = resultResponse
                 }else{
-                    val oldArticles = headlinesResponse?.articles
+                    val oldArticles = localHeadlinesResponse?.articles
                     val newArticles = resultResponse.articles
                     oldArticles?.addAll(newArticles)
                 }
 
-                return Resource.Success(headlinesResponse ?: resultResponse)
+                return Resource.Success(localHeadlinesResponse ?: resultResponse)
+            }
+        }
+
+        return Resource.Error(response.message())
+    }
+
+    private fun handleInternationalNewsResponse(response : Response<NewsResponse>) :  Resource<NewsResponse>{
+        if(response.isSuccessful){
+            response.body()?.let { resultResponse ->
+                internationalHeadlinesPageNumber++
+                if(internationalHeadlinesResponse == null){
+                    internationalHeadlinesResponse = resultResponse
+                }else{
+                    val oldArticles = internationalHeadlinesResponse?.articles
+                    val newArticles = resultResponse.articles
+                    oldArticles?.addAll(newArticles)
+                }
+
+                return Resource.Success(internationalHeadlinesResponse ?: resultResponse)
             }
         }
 
