@@ -5,22 +5,47 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.fangzsx.news_app.R
+import com.fangzsx.news_app.adapters.NewsAdapter
+import com.fangzsx.news_app.databinding.FragmentSavedNewsBinding
+import com.fangzsx.news_app.ui.NewsActivity
+import com.fangzsx.news_app.viewmodels.NewsViewModel
 
 class SavedNewsFragment : Fragment() {
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
+    private lateinit var binding : FragmentSavedNewsBinding
+    private lateinit var viewModel : NewsViewModel
+    private lateinit var newsAdapter : NewsAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_saved_news, container, false)
+        binding = FragmentSavedNewsBinding.inflate(layoutInflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        viewModel = (activity as NewsActivity).viewModel
+
+        setupRecyclerView()
+
+        viewModel.getSavedNews().observe(viewLifecycleOwner){ articles ->
+            newsAdapter.differ.submitList(articles)
+        }
+    }
+
+    private fun setupRecyclerView(){
+        newsAdapter = NewsAdapter()
+        newsAdapter.isSaveVisible = false
+
+        binding.rvSavedNews.apply{
+            adapter = newsAdapter
+            layoutManager = LinearLayoutManager(activity)
+        }
     }
 
 

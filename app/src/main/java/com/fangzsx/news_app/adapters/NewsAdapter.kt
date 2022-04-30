@@ -1,6 +1,7 @@
 package com.fangzsx.news_app.adapters
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
@@ -10,6 +11,8 @@ import com.fangzsx.news_app.databinding.NewsItemLayoutBinding
 import com.fangzsx.news_app.model.Article
 
 class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
+
+    var isSaveVisible : Boolean = true
 
     inner class ArticleViewHolder(val binding : NewsItemLayoutBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -51,15 +54,22 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
                 }
             }
 
-            ivSave.setOnClickListener {
-                onSaveClickListener?.let {
-                    it(article)
+            if(isSaveVisible){
+                ivSave.setOnClickListener {
+                    onSaveClickListener?.let {
+                        it(article)
+                    }
                 }
+            }else{
+                ivSave.visibility = View.GONE
             }
+
+
 
         }
 
     }
+
 
     private var onReadMoreClickListener : ((Article) -> Unit)? = null
 

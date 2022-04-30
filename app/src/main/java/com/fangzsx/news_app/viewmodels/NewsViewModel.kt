@@ -55,11 +55,11 @@ class NewsViewModel(
 
     fun getSavedNews() = repository.getAllArticle()
 
-    suspend fun saveArticle(article : Article) = viewModelScope.launch {
+    fun saveArticle(article : Article) = viewModelScope.launch {
         repository.upsertArticle(article)
     }
 
-    suspend fun deleteArticle(article : Article) = viewModelScope.launch {
+    fun deleteArticle(article : Article) = viewModelScope.launch {
         repository.deleteArticle(article)
     }
 

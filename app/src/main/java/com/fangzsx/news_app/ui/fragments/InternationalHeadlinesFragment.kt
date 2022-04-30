@@ -14,6 +14,7 @@ import com.fangzsx.news_app.databinding.FragmentInternationalHeadlinesBinding
 import com.fangzsx.news_app.ui.NewsActivity
 import com.fangzsx.news_app.util.Resource
 import com.fangzsx.news_app.viewmodels.NewsViewModel
+import com.google.android.material.snackbar.Snackbar
 
 
 class InternationalHeadlinesFragment : Fragment() {
@@ -39,13 +40,17 @@ class InternationalHeadlinesFragment : Fragment() {
         viewModel.getLocalHeadlines("us")
         setupRecyclerView()
 
-        newsAdapter.
-        setOnReadMoreClickListener {
+        newsAdapter.setOnReadMoreClickListener {
             val bundle = Bundle()
             bundle.putString("webview_url", it.url)
-            bundle.putString("source", it.source.name)
+            bundle.putString("source", it.source!!.name)
 
             findNavController().navigate(R.id.action_internationalHeadlinesFragment_to_articleFragment,bundle)
+        }
+
+        newsAdapter.setOnSaveClickListener { article ->
+            viewModel.saveArticle(article)
+            Snackbar.make(view, "Article saved.", Snackbar.LENGTH_SHORT).show()
         }
 
         viewModel.localHeadlines.observe(viewLifecycleOwner){ response ->
