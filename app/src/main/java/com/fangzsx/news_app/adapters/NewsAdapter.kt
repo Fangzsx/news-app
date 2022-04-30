@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.fangzsx.news_app.R
 import com.fangzsx.news_app.databinding.NewsItemLayoutBinding
 import com.fangzsx.news_app.model.Article
 
@@ -42,11 +43,21 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
         val article = differ.currentList[position]
         holder.binding.apply {
             tvTitle.text = "\"${article.title}\""
-            tvDescription.text = article.description
-            ivImage.load(article.urlToImage){
-                crossfade(true)
-                crossfade(1000)
+
+
+            if(article.urlToImage != null){
+                ivImage.load(article.urlToImage){
+                    crossfade(true)
+                    crossfade(1000)
+                }
             }
+
+            if(article.description.isNullOrEmpty()){
+                tvDescription.text = "Source: ${article.source?.name}"
+            }else{
+                tvDescription.text = article.description
+            }
+
 
             btnReadMore.setOnClickListener {
                 onReadMoreClickListener?.let {

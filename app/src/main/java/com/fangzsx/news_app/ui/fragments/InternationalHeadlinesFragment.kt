@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AbsListView
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -74,7 +75,7 @@ class InternationalHeadlinesFragment : Fragment() {
                 is Resource.Error -> {
                     isLoading = false
                     response.message?.let { message ->
-                        Log.e(TAG, "An error occured. $message")
+                        Toast.makeText(activity, "An error occurred: $message", Toast.LENGTH_LONG).show()
                     }
                 }
 
