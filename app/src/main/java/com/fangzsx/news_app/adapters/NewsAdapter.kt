@@ -60,6 +60,12 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
                 }
             }
 
+            ivShare.setOnClickListener {
+                onShareClickListener?.let{
+                    it(article)
+                }
+            }
+
             if(isSaveVisible){
                 ivSave.setOnClickListener {
                     onSaveClickListener?.let {
@@ -77,8 +83,14 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
 
     private var onSaveClickListener : ((Article) -> Unit)? = null
 
+    private var onShareClickListener : ((Article) -> Unit)? = null
+
+
     fun setOnReadMoreClickListener(listener : (Article) -> Unit){
         onReadMoreClickListener = listener
+    }
+    fun setOnShareClickListener(listener : (Article) -> Unit){
+        onShareClickListener = listener
     }
 
     fun setOnSaveClickListener(listener : (Article) -> Unit){

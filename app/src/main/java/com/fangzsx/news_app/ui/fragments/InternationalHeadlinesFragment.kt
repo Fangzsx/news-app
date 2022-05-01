@@ -1,5 +1,6 @@
 package com.fangzsx.news_app.ui.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -55,6 +56,14 @@ class InternationalHeadlinesFragment : Fragment() {
         newsAdapter.setOnSaveClickListener { article ->
             viewModel.saveArticle(article)
             Snackbar.make(view, "Article saved.", Snackbar.LENGTH_SHORT).show()
+        }
+
+        newsAdapter.setOnShareClickListener {
+            val intent = Intent()
+            intent.action = Intent.ACTION_SEND
+            intent.type = "text/plain"
+            intent.putExtra(Intent.EXTRA_TEXT, "Hi! I just wanna share this article with you. Click this link : ${it.url}")
+            startActivity(Intent.createChooser(intent, "Share via"))
         }
 
         viewModel.internationalHeadlines.observe(viewLifecycleOwner){ response ->
