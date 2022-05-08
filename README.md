@@ -5,7 +5,7 @@ Keeping you up-to date with the latest Filipino and International news.
 
 
 ## Download APK
-[Click Me!](https://github.com/Fangzsx/news-app/raw/master/app/release/app-release.apk)
+[Click me!](https://github.com/Fangzsx/news-app/raw/master/app/release/app-release.apk)
 
 
 ## Difficulties and Inspiration
