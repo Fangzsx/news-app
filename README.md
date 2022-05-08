@@ -1,11 +1,11 @@
 # news-app
 Keeping you up-to date with the latest Filipino and International news.
 ## Screenshots
-
+<img src="https://github.com/Fangzsx/news-app/blob/master/app/src/main/assets/Screenshot_20220508-102350_news-app.png?raw=true" width="150" height="280"> <img src="https://github.com/Fangzsx/news-app/blob/master/app/src/main/assets/Screenshot_20220508-102356_news-app.png?raw=true" height="280"> <img src="https://github.com/Fangzsx/news-app/blob/master/app/src/main/assets/Screenshot_20220508-102403_news-app.png?raw=true" width="150" height="280"> <img src="https://github.com/Fangzsx/news-app/blob/master/app/src/main/assets/Screenshot_20220508-102426_news-app.png?raw=true" width="150" height="280"> <img src="https://github.com/Fangzsx/news-app/blob/master/app/src/main/assets/Screenshot_20220508-102758_news-app.png?raw=true" width="150" height="280">
 
 
 ## Download APK
-
+[Click Me!](https://github.com/Fangzsx/news-app/raw/master/app/release/app-release.apk)
 
 
 ## Difficulties and Inspiration
@@ -22,7 +22,7 @@ This app was inspired by a tutorial created by Philipp Lackner on Youtube. I was
 I learned a lot in this project especially the option to put all ViewModel functionalities into the parent Activity. Normally, I put my ViewModel to each fragment individually, and in my opinion, that was more organized rather than putting them into a single file, in this case, the NewsActivity itself. For the sake of organizing, I prefer it that way because if a certain fragment or activity does not do exactly what I want, I'll just check its respective ViewModel. As for saving articles, I used Room Database.
 
 ## Tech Stack
-<img src="https://github.com/Fangzsx/apar-app/blob/master/app/src/main/assets/android-studio.png?raw=true" width="48" height="48" title ="Android Studio">  <img src="https://github.com/Fangzsx/apar-app/blob/master/app/src/main/assets/kotlin.png?raw=true" width="48" height="48" title ="Kotlin">  <img src="https://github.com/Fangzsx/apar-app/blob/master/app/src/main/assets/firebase.png?raw=true" width="48" height="48" title ="Android Studio">
+<img src="https://github.com/Fangzsx/apar-app/blob/master/app/src/main/assets/android-studio.png?raw=true" width="48" height="48" title ="Android Studio">  <img src="https://github.com/Fangzsx/apar-app/blob/master/app/src/main/assets/kotlin.png?raw=true" width="48" height="48" title ="Kotlin">  <img src="https://github.com/Fangzsx/news-app/blob/master/app/src/main/assets/database.png?raw=true" width="48" height="48" title ="ROOM Database">  <img src="https://github.com/Fangzsx/news-app/blob/master/app/src/main/assets/api.png?raw=true" width="48" height="48" title ="REST-API">
 
 ## Run Locally
 1. Open Android Studio
