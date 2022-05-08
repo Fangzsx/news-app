@@ -16,13 +16,14 @@ This app was inspired by a tutorial created by Philipp Lackner on Youtube. I was
 2. International News- Since the API has no option for International News, I used US-based headlines.
 3. Save News for Future Reading - Save your favorite or to-read later.
 4. Search for an Article- Use keyword to get a list of news related to your query
+5. No Internet Connection/Unknown Response Error Handling- Prevent the app from crashing if no internet or an unexpected response occur.
 
 
 ## Project Experience
 I learned a lot in this project especially the option to put all ViewModel functionalities into the parent Activity. Normally, I put my ViewModel to each fragment individually, and in my opinion, that was more organized rather than putting them into a single file, in this case, the NewsActivity itself. For the sake of organizing, I prefer it that way because if a certain fragment or activity does not do exactly what I want, I'll just check its respective ViewModel. As for saving articles, I used Room Database.
 
 ## Tech Stack
-<img src="https://github.com/Fangzsx/apar-app/blob/master/app/src/main/assets/android-studio.png?raw=true" width="48" height="48" title ="Android Studio">  <img src="https://github.com/Fangzsx/apar-app/blob/master/app/src/main/assets/kotlin.png?raw=true" width="48" height="48" title ="Kotlin">  <img src="https://github.com/Fangzsx/news-app/blob/master/app/src/main/assets/database.png?raw=true" width="48" height="48" title ="ROOM Database">  <img src="https://github.com/Fangzsx/news-app/blob/master/app/src/main/assets/api.png?raw=true" width="48" height="48" title ="REST-API">
+<img src="https://github.com/Fangzsx/apar-app/blob/master/app/src/main/assets/android-studio.png?raw=true" width="48" height="48" title ="Android Studio">  <img src="https://github.com/Fangzsx/apar-app/blob/master/app/src/main/assets/kotlin.png?raw=true" width="48" height="48" title ="Kotlin">  <img src="https://github.com/Fangzsx/news-app/blob/master/app/src/main/assets/database.png?raw=true" width="48" height="48" title ="ROOM Database">  <img src="https://github.com/Fangzsx/news-app/blob/master/app/src/main/assets/api.png?raw=true" width="48" height="48" title ="REST-API">  <img src="https://github.com/Fangzsx/news-app/blob/master/app/src/main/assets/figma.png?raw=true" width="48" height="48" title ="Figma">
 
 ## Run Locally
 1. Open Android Studio
