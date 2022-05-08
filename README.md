@@ -1,4 +1,4 @@
-# news-app
+# news-app <img src="https://github.com/Fangzsx/news-app/blob/master/app/src/main/assets/icon.png?raw=true" width="48" height="48">
 Keeping you up-to date with the latest Filipino and International news.
 ## Screenshots
 <img src="https://github.com/Fangzsx/news-app/blob/master/app/src/main/assets/Screenshot_20220508-102350_news-app.png?raw=true" width="150" height="280"> <img src="https://github.com/Fangzsx/news-app/blob/master/app/src/main/assets/Screenshot_20220508-102356_news-app.png?raw=true" height="280"> <img src="https://github.com/Fangzsx/news-app/blob/master/app/src/main/assets/Screenshot_20220508-102403_news-app.png?raw=true" width="150" height="280"> <img src="https://github.com/Fangzsx/news-app/blob/master/app/src/main/assets/Screenshot_20220508-102426_news-app.png?raw=true" width="150" height="280"> <img src="https://github.com/Fangzsx/news-app/blob/master/app/src/main/assets/Screenshot_20220508-102758_news-app.png?raw=true" width="150" height="280">
